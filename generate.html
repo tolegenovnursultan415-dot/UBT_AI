@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="kk">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>AI ҰБТ генераторы | INFO ҰБТ AI</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+
+    margin: 0;
+
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background:
+        radial-gradient(
+            circle at top right,
+            #12345a,
+            #050b14 65%
+        );
+
+    color: white;
+
+}
+
+
+.card {
+
+    width: min(
+        650px,
+        92%
+    );
+
+    text-align: center;
+
+    padding: 50px 35px;
+
+    border-radius: 28px;
+
+    background:
+        rgba(10,25,40,0.95);
+
+    border:
+        1px solid
+        rgba(79,216,255,0.16);
+
+    box-shadow:
+        0 30px 80px
+        rgba(0,0,0,0.4);
+
+}
+
+
+.logo {
+
+    font-size: 25px;
+
+    font-weight: 900;
+
+    margin-bottom: 25px;
+
+}
+
+
+.logo span {
+
+    color:
+        #4fd8ff;
+
+}
+
+
+.badge {
+
+    display: inline-block;
+
+    padding:
+        8px 14px;
+
+    border:
+        1px solid
+        #28566f;
+
+    border-radius:
+        20px;
+
+    color:
+        #4fd8ff;
+
+    font-size:
+        11px;
+
+    font-weight:
+        bold;
+
+}
+
+
+h1 {
+
+    font-size:
+        42px;
+
+    margin:
+        20px 0 15px;
+
+}
+
+
+.description {
+
+    color:
+        #9eb2c4;
+
+    line-height:
+        1.7;
+
+    font-size:
+        15px;
+
+}
+
+
+.structure {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap:
+        10px;
+
+    margin:
+        25px 0;
+
+}
+
+
+.item {
+
+    padding:
+        15px;
+
+    border-radius:
+        13px;
+
+    background:
+        #0b1b2b;
+
+    border:
+        1px solid
+        #203b52;
+
+}
+
+
+.number {
+
+    color:
+        #4fd8ff;
+
+    font-size:
+        22px;
+
+    font-weight:
+        900;
+
+}
+
+
+.label {
+
+    margin-top:
+        5px;
+
+    color:
+        #9dafbf;
+
+    font-size:
+        13px;
+
+}
+
+
+.generate {
+
+    width:
+        100%;
+
+    border:
+        none;
+
+    border-radius:
+        14px;
+
+    padding:
+        18px;
+
+    background:
+        #4fd8ff;
+
+    color:
+        #03111b;
+
+    font-size:
+        16px;
+
+    font-weight:
+        900;
+
+    cursor:
+        pointer;
+
+    margin-top:
+        10px;
+
+}
+
+
+.generate:hover {
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 15px 35px
+        rgba(79,216,255,0.22);
+
+}
+
+
+.generate:disabled {
+
+    opacity:
+        .5;
+
+    cursor:
+        not-allowed;
+
+    transform:
+        none;
+
+}
+
+
+.status {
+
+    min-height:
+        25px;
+
+    margin-top:
+        18px;
+
+    color:
+        #91a5b7;
+
+    font-size:
+        13px;
+
+    line-height:
+        1.5;
+
+}
+
+
+.back {
+
+    display:
+        inline-block;
+
+    margin-top:
+        20px;
+
+    color:
+        #8198aa;
+
+    text-decoration:
+        none;
+
+    font-size:
+        13px;
+
+}
+
+
+.back:hover {
+
+    color:
+        white;
+
+}
+
+
+@media(max-width:600px) {
+
+    .card {
+
+        padding:
+            35px 20px;
+
+    }
+
+
+    h1 {
+
+        font-size:
+            31px;
+
+    }
+
+
+    .structure {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="card">
+
+
+    <div class="logo">
+
+        INFO
+        <span>ҰБТ AI</span>
+
+    </div>
+
+
+    <div class="badge">
+
+        AI ҰБТ ГЕНЕРАТОРЫ
+
+    </div>
+
+
+    <h1>
+
+        Жаңа ҰБТ нұсқасын жаса
+
+    </h1>
+
+
+    <p class="description">
+
+        Gemini әр іске қосқанда информатикадан
+        жаңа 40 тапсырмалық жаттығу нұсқасын
+        құрастырады.
+
+    </p>
+
+
+    <div class="structure">
+
+
+        <div class="item">
+
+            <div class="number">
+                25
+            </div>
+
+            <div class="label">
+                Бір дұрыс жауап
+            </div>
+
+        </div>
+
+
+        <div class="item">
+
+            <div class="number">
+                5
+            </div>
+
+            <div class="label">
+                Контекст
+            </div>
+
+        </div>
+
+
+        <div class="item">
+
+            <div class="number">
+                5
+            </div>
+
+            <div class="label">
+                Бірнеше дұрыс жауап
+            </div>
+
+        </div>
+
+
+        <div class="item">
+
+            <div class="number">
+                5
+            </div>
+
+            <div class="label">
+                Сәйкестік
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <button
+        class="generate"
+        id="generateButton"
+        onclick="generateTest()"
+    >
+
+        🤖 ЖАҢА ҰБТ НҰСҚАСЫН ЖАСАУ
+
+    </button>
+
+
+    <div
+        class="status"
+        id="status"
+    ></div>
+
+
+    <a
+        href="/"
+        class="back"
+    >
+
+        ← Басты бет
+
+    </a>
+
+
+</div>
+
+
+
+<script>
+
+async function generateTest() {
+
+
+    const button =
+        document.getElementById(
+            "generateButton"
+        );
+
+
+    const status =
+        document.getElementById(
+            "status"
+        );
+
+
+    button.disabled = true;
+
+
+    button.textContent =
+        "⏳ ҰБТ НҰСҚАСЫ ҚҰРАСТЫРЫЛУДА...";
+
+
+    status.textContent =
+        "Gemini 40 тапсырманы ҰБТ құрылымына сәйкестендіріп дайындап жатыр.";
+
+
+    try {
+
+
+        const response =
+            await fetch(
+                "/api/generate-test",
+                {
+
+                    method:
+                        "POST",
+
+                    headers: {
+
+                        "Content-Type":
+                            "application/json"
+
+                    },
+
+                    body:
+                        JSON.stringify({})
+
+                }
+            );
+
+
+        const data =
+            await response.json();
+
+
+        if (
+            data.success
+            &&
+            data.url
+        ) {
+
+
+            status.textContent =
+                "✅ Нұсқа дайын. Тест ашылуда...";
+
+
+            window.location.href =
+                data.url;
+
+
+            return;
+
+        }
+
+
+        throw new Error(
+
+            data.error
+            ||
+            "Тест жасау мүмкін болмады."
+
+        );
+
+
+    }
+
+
+    catch(error) {
+
+
+        console.error(
+            error
+        );
+
+
+        status.textContent =
+            "❌ " +
+            error.message;
+
+
+        button.disabled =
+            false;
+
+
+        button.textContent =
+            "🤖 ҚАЙТА ӘРЕКЕТ ЕТУ";
+
+    }
+
+}
+
+</script>
+
+
+</body>
+
+</html>

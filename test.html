@@ -1,0 +1,2203 @@
+```html
+<!DOCTYPE html>
+<html lang="kk">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>ҰБТ | INFO ҰБТ AI</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --bg: #050a11;
+    --bg-soft: #09131f;
+    --card: rgba(10, 24, 38, 0.96);
+    --card-soft: #0b1a29;
+    --line: rgba(255,255,255,0.08);
+    --line-blue: rgba(79,216,255,0.35);
+    --text: #f4f7fa;
+    --muted: #9aabba;
+    --accent: #55c7ef;
+    --green: #42d99b;
+    --red: #ed6979;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+
+    min-height: 100vh;
+
+    font-family:
+        "Times New Roman",
+        Times,
+        serif;
+
+    background:
+        radial-gradient(
+            circle at 85% 0%,
+            rgba(24,76,112,0.42),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 0% 45%,
+            rgba(14,47,72,0.22),
+            transparent 30%
+        ),
+        var(--bg);
+
+    color: var(--text);
+
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+
+    height: 74px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 6%;
+
+    background:
+        rgba(4,9,16,0.94);
+
+    border-bottom:
+        1px solid var(--line);
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 100;
+
+    backdrop-filter:
+        blur(18px);
+
+}
+
+
+.logo {
+
+    font-size: 25px;
+
+    font-weight: 900;
+
+}
+
+
+.logo span {
+
+    color: var(--accent);
+
+}
+
+
+nav {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 28px;
+
+}
+
+
+nav a {
+
+    position: relative;
+
+    color: #aebdca;
+
+    text-decoration: none;
+
+    font-size: 16px;
+
+    transition: 0.25s;
+
+}
+
+
+nav a:hover {
+
+    color: white;
+
+}
+
+
+nav a::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    bottom: -7px;
+
+    width: 0;
+
+    height: 1px;
+
+    background: var(--accent);
+
+    transition: 0.25s;
+
+}
+
+
+nav a:hover::after {
+
+    width: 100%;
+
+}
+
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container {
+
+    width: 91%;
+
+    max-width: 1050px;
+
+    margin: 40px auto 90px;
+
+}
+
+
+/* =========================
+   TOP
+========================= */
+
+.top {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 25px;
+
+    margin-bottom: 28px;
+
+}
+
+
+.badge {
+
+    display: inline-block;
+
+    padding: 7px 14px;
+
+    border-radius: 30px;
+
+    border:
+        1px solid var(--line-blue);
+
+    color: var(--accent);
+
+    background:
+        rgba(79,216,255,0.04);
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+}
+
+
+h1 {
+
+    font-size: 39px;
+
+    line-height: 1.1;
+
+    margin-top: 13px;
+
+}
+
+
+/* =========================
+   TIMER
+========================= */
+
+.timer {
+
+    min-width: 145px;
+
+    padding: 14px 20px;
+
+    border-radius: 13px;
+
+    text-align: center;
+
+    background:
+        #0b1c2d;
+
+    border:
+        1px solid var(--line-blue);
+
+}
+
+
+.timer small {
+
+    display: block;
+
+    color: #8095a7;
+
+    font-size: 11px;
+
+    margin-bottom: 6px;
+
+}
+
+
+#timer {
+
+    color: var(--accent);
+
+    font-size: 27px;
+
+    font-family:
+        "Times New Roman",
+        Times,
+        serif;
+
+    font-weight: bold;
+
+}
+
+
+/* =========================
+   PROGRESS
+========================= */
+
+.progress-info {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    color: #8da2b4;
+
+    font-size: 15px;
+
+    margin-bottom: 8px;
+
+}
+
+
+.progress {
+
+    height: 7px;
+
+    background:
+        #142638;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    margin-bottom: 28px;
+
+}
+
+
+.progress-bar {
+
+    height: 100%;
+
+    width: 0%;
+
+    background:
+        var(--accent);
+
+    transition: 0.25s;
+
+}
+
+
+/* =========================
+   QUESTION CARD
+========================= */
+
+.question-card {
+
+    background:
+        var(--card);
+
+    border:
+        1px solid var(--line);
+
+    border-radius: 18px;
+
+    padding: 27px;
+
+    margin-bottom: 18px;
+
+    box-shadow:
+        0 12px 35px rgba(0,0,0,0.14);
+
+}
+
+
+.question-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 20px;
+
+}
+
+
+.number {
+
+    width: 42px;
+
+    height: 42px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        #14354c;
+
+    color:
+        var(--accent);
+
+    font-weight: 900;
+
+    font-size: 18px;
+
+}
+
+
+.topic {
+
+    color:
+        var(--accent);
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    text-transform: uppercase;
+
+}
+
+
+/* =========================
+   CONTEXT
+========================= */
+
+.context {
+
+    background:
+        rgba(79,216,255,0.035);
+
+    border:
+        1px solid
+        rgba(79,216,255,0.12);
+
+    border-radius: 12px;
+
+    padding: 17px;
+
+    margin-bottom: 19px;
+
+    color:
+        #a9bccd;
+
+    line-height: 1.7;
+
+    white-space:
+        pre-line;
+
+}
+
+
+.question-text {
+
+    font-size: 20px;
+
+    line-height: 1.6;
+
+    white-space:
+        pre-line;
+
+    margin-bottom: 19px;
+
+}
+
+
+/* =========================
+   OPTIONS
+========================= */
+
+.option {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    padding: 14px;
+
+    border:
+        1px solid #203a51;
+
+    border-radius: 11px;
+
+    margin-top: 8px;
+
+    cursor: pointer;
+
+    transition:
+        0.2s;
+
+}
+
+
+.option:hover {
+
+    border-color:
+        var(--line-blue);
+
+    background:
+        rgba(79,216,255,0.035);
+
+}
+
+
+.option.selected {
+
+    border-color:
+        var(--accent);
+
+    background:
+        rgba(79,216,255,0.08);
+
+}
+
+
+.option input {
+
+    display: none;
+
+}
+
+
+.letter {
+
+    width: 33px;
+
+    height: 33px;
+
+    border-radius: 50%;
+
+    background:
+        #132b40;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    font-weight: bold;
+
+}
+
+
+.option.selected .letter {
+
+    background:
+        var(--accent);
+
+    color:
+        #04111a;
+
+}
+
+
+/* =========================
+   MATCH
+========================= */
+
+.match-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 11px;
+
+}
+
+
+.match-row {
+
+    padding: 15px;
+
+    background:
+        #0a1928;
+
+    border:
+        1px solid #20384e;
+
+    border-radius: 11px;
+
+}
+
+
+.match-row label {
+
+    display: block;
+
+    margin-bottom: 9px;
+
+    color: #9db0c1;
+
+    font-size: 15px;
+
+    line-height: 1.4;
+
+}
+
+
+.match-row select {
+
+    width: 100%;
+
+    padding: 11px;
+
+    border-radius: 9px;
+
+    border:
+        1px solid #31516a;
+
+    background:
+        #081521;
+
+    color: white;
+
+    font-family:
+        "Times New Roman",
+        Times,
+        serif;
+
+    font-size: 15px;
+
+}
+
+
+/* =========================
+   FINISH
+========================= */
+
+.finish {
+
+    width: 100%;
+
+    border: none;
+
+    padding: 17px;
+
+    border-radius: 12px;
+
+    background:
+        var(--accent);
+
+    color:
+        #03111b;
+
+    font-family:
+        "Times New Roman",
+        Times,
+        serif;
+
+    font-size: 18px;
+
+    font-weight: 900;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+
+}
+
+
+.finish:hover {
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 12px 30px
+        rgba(79,216,255,0.17);
+
+}
+
+
+/* =========================
+   RESULT
+========================= */
+
+#result {
+
+    display: none;
+
+}
+
+
+.result-main {
+
+    background:
+        linear-gradient(
+            145deg,
+            #102d45,
+            #081723
+        );
+
+    border:
+        1px solid var(--line-blue);
+
+    border-radius: 20px;
+
+    padding: 38px;
+
+    text-align: center;
+
+    margin-bottom: 22px;
+
+}
+
+
+.score {
+
+    font-size: 65px;
+
+    font-weight: 900;
+
+    color:
+        var(--accent);
+
+    margin: 14px 0;
+
+}
+
+
+.points {
+
+    color:
+        #a7bacb;
+
+    font-size: 17px;
+
+}
+
+
+.review {
+
+    background:
+        #0b1a29;
+
+    border:
+        1px solid var(--line);
+
+    border-radius: 14px;
+
+    padding: 20px;
+
+    margin-bottom: 12px;
+
+}
+
+
+.review.good {
+
+    border-left:
+        4px solid var(--green);
+
+}
+
+
+.review.bad {
+
+    border-left:
+        4px solid var(--red);
+
+}
+
+
+.review-title {
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    margin-bottom: 10px;
+
+}
+
+
+.review-text {
+
+    color:
+        #a9bbc9;
+
+    line-height: 1.7;
+
+    font-size: 16px;
+
+}
+
+
+.theory {
+
+    margin-top: 13px;
+
+    padding: 14px;
+
+    background:
+        rgba(79,216,255,0.04);
+
+    border:
+        1px solid
+        rgba(79,216,255,0.08);
+
+    border-radius: 9px;
+
+    color:
+        #b7c8d7;
+
+    line-height: 1.7;
+
+}
+
+
+.hidden {
+
+    display:
+        none !important;
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width: 700px) {
+
+    header {
+
+        height: auto;
+
+        min-height: 70px;
+
+        padding:
+            14px 20px;
+
+        flex-wrap: wrap;
+
+        gap: 10px;
+
+    }
+
+
+    nav {
+
+        width: 100%;
+
+        justify-content:
+            space-between;
+
+        gap: 8px;
+
+    }
+
+
+    nav a {
+
+        font-size: 13px;
+
+    }
+
+
+    .container {
+
+        width: 92%;
+
+        margin-top: 28px;
+
+    }
+
+
+    .top {
+
+        align-items:
+            flex-start;
+
+        flex-direction:
+            column;
+
+    }
+
+
+    .timer {
+
+        width: 100%;
+
+    }
+
+
+    h1 {
+
+        font-size: 31px;
+
+    }
+
+
+    .question-card {
+
+        padding:
+            19px;
+
+    }
+
+
+    .question-text {
+
+        font-size: 18px;
+
+    }
+
+
+    .match-grid {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .result-main {
+
+        padding:
+            28px 18px;
+
+    }
+
+
+    .score {
+
+        font-size:
+            52px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+    <div class="logo">
+        INFO <span>ҰБТ AI</span>
+    </div>
+
+
+    <nav>
+
+        <a href="/">
+            Басты бет
+        </a>
+
+        <a href="/generate">
+            AI ҰБТ
+        </a>
+
+        <a href="/ai">
+            AI мұғалім
+        </a>
+
+    </nav>
+
+</header>
+
+
+
+<main class="container">
+
+
+<div class="top">
+
+    <div>
+
+        <div class="badge">
+            ҰБТ • ИНФОРМАТИКА
+        </div>
+
+
+        <h1>
+            {{ test_title or "Информатика ҰБТ" }}
+        </h1>
+
+    </div>
+
+
+    <div class="timer">
+
+        <small>
+            ҚАЛҒАН УАҚЫТ
+        </small>
+
+
+        <div id="timer">
+            80:00
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<div class="progress-info">
+
+    <span>
+        Орындалуы
+    </span>
+
+
+    <span id="progressText">
+        0 / {{ questions|length }}
+    </span>
+
+</div>
+
+
+
+<div class="progress">
+
+    <div
+        class="progress-bar"
+        id="progressBar"
+    ></div>
+
+</div>
+
+
+
+<form id="testForm">
+
+
+{% for question in questions %}
+
+
+<div
+    class="question-card"
+    data-id="{{ question.id }}"
+    data-type="{{ question.type }}"
+>
+
+
+    <div class="question-header">
+
+        <div class="number">
+            {{ loop.index }}
+        </div>
+
+
+        <div class="topic">
+
+            {{ question.topic }}
+
+            •
+
+            {{ question.difficulty }}
+
+        </div>
+
+    </div>
+
+
+
+    {% if question.context %}
+
+    <div class="context">
+
+        <b>
+            Контекст
+        </b>
+
+        <br><br>
+
+        {{ question.context }}
+
+    </div>
+
+    {% endif %}
+
+
+
+    <div class="question-text">
+
+        {{ question.question }}
+
+    </div>
+
+
+
+    {% if question.type == "single"
+          or question.type == "context_single" %}
+
+
+        {% for option in question.options %}
+
+        <label class="option">
+
+
+            <input
+
+                type="radio"
+
+                name="q_{{ question.id }}"
+
+                value="{{ loop.index0 }}"
+
+            >
+
+
+            <span class="letter">
+
+                {{ [
+                    "A",
+                    "B",
+                    "C",
+                    "D"
+                ][loop.index0] }}
+
+            </span>
+
+
+            <span>
+                {{ option }}
+            </span>
+
+
+        </label>
+
+        {% endfor %}
+
+
+
+    {% elif question.type == "multiple" %}
+
+
+        {% for option in question.options %}
+
+        <label class="option">
+
+
+            <input
+
+                type="checkbox"
+
+                name="q_{{ question.id }}"
+
+                value="{{ loop.index0 }}"
+
+            >
+
+
+            <span class="letter">
+
+                {{ [
+                    "A",
+                    "B",
+                    "C",
+                    "D",
+                    "E",
+                    "F"
+                ][loop.index0] }}
+
+            </span>
+
+
+            <span>
+                {{ option }}
+            </span>
+
+
+        </label>
+
+        {% endfor %}
+
+
+
+    {% elif question.type == "match" %}
+
+
+        <div class="match-grid">
+
+
+        {% for item in question.left %}
+
+
+        <div class="match-row">
+
+
+            <label>
+
+                {{ loop.index }}.
+                {{ item }}
+
+            </label>
+
+
+            <select
+
+                name="match_{{ question.id }}_{{ loop.index0 }}"
+
+            >
+
+                <option value="">
+                    Таңдаңыз
+                </option>
+
+
+                {% for right in question.right %}
+
+                <option
+                    value="{{ loop.index0 }}"
+                >
+
+                    {{ [
+                        "A",
+                        "B",
+                        "C",
+                        "D"
+                    ][loop.index0] }}
+
+                    —
+
+                    {{ right }}
+
+                </option>
+
+                {% endfor %}
+
+            </select>
+
+
+        </div>
+
+
+        {% endfor %}
+
+
+        </div>
+
+
+    {% endif %}
+
+
+</div>
+
+
+{% endfor %}
+
+
+
+<button
+    type="submit"
+    class="finish"
+>
+    ҰБТ-ты аяқтау
+</button>
+
+
+</form>
+
+
+
+<section id="result">
+
+
+    <div class="result-main">
+
+
+        <div class="badge">
+            ТЕСТ АЯҚТАЛДЫ
+        </div>
+
+
+        <div
+            class="score"
+            id="score"
+        >
+            0 / 50
+        </div>
+
+
+        <div
+            class="points"
+            id="answered"
+        >
+            0 / 40 сұрақ жауапталды
+        </div>
+
+
+    </div>
+
+
+    <div id="reviews"></div>
+
+
+</section>
+
+
+</main>
+
+
+
+<script>
+
+
+/* =====================================================
+   РЕЖИМ
+===================================================== */
+
+const GENERATED =
+    {{ generated|default(false)|tojson }};
+
+
+const TEST_ID =
+    {{ test_id|default("")|tojson }};
+
+
+
+/* =====================================================
+   TIMER
+===================================================== */
+
+let seconds = 80 * 60;
+
+let finished = false;
+
+
+const timerElement =
+    document.getElementById(
+        "timer"
+    );
+
+
+const timerInterval =
+
+    setInterval(
+        function() {
+
+            if (finished) {
+                return;
+            }
+
+            seconds--;
+
+            if (seconds <= 0) {
+
+                seconds = 0;
+
+                clearInterval(
+                    timerInterval
+                );
+
+                finishTest();
+
+            }
+
+            updateTimer();
+
+        },
+
+        1000
+    );
+
+
+function updateTimer() {
+
+    const minutes =
+        Math.floor(
+            seconds / 60
+        );
+
+
+    const remainingSeconds =
+        seconds % 60;
+
+
+    timerElement.textContent =
+
+        String(minutes)
+        .padStart(2, "0")
+
+        +
+
+        ":"
+
+        +
+
+        String(
+            remainingSeconds
+        ).padStart(2, "0");
+
+}
+
+
+
+/* =====================================================
+   OPTIONS
+===================================================== */
+
+document
+    .querySelectorAll(".option")
+    .forEach(
+        function(option) {
+
+            option.addEventListener(
+                "click",
+                function() {
+
+                    const input =
+                        option.querySelector(
+                            "input"
+                        );
+
+
+                    const card =
+                        option.closest(
+                            ".question-card"
+                        );
+
+
+                    if (
+                        input.type ===
+                        "radio"
+                    ) {
+
+                        card
+                            .querySelectorAll(
+                                ".option"
+                            )
+                            .forEach(
+                                function(item) {
+
+                                    item.classList
+                                        .remove(
+                                            "selected"
+                                        );
+
+                                }
+                            );
+
+                    }
+
+
+                    input.checked =
+                        true;
+
+
+                    option.classList.add(
+                        "selected"
+                    );
+
+
+                    updateProgress();
+
+                }
+            );
+
+        }
+    );
+
+
+
+/* =====================================================
+   SELECT
+===================================================== */
+
+document
+    .querySelectorAll("select")
+    .forEach(
+        function(select) {
+
+            select.addEventListener(
+                "change",
+                updateProgress
+            );
+
+        }
+    );
+
+
+
+/* =====================================================
+   PROGRESS
+===================================================== */
+
+function updateProgress() {
+
+    let answered = 0;
+
+
+    document
+        .querySelectorAll(
+            ".question-card"
+        )
+        .forEach(
+            function(card) {
+
+                const type =
+                    card.dataset.type;
+
+
+                if (
+                    type === "single"
+                    ||
+                    type === "context_single"
+                ) {
+
+                    if (
+                        card.querySelector(
+                            "input:checked"
+                        )
+                    ) {
+
+                        answered++;
+
+                    }
+
+                }
+
+
+                else if (
+                    type === "multiple"
+                ) {
+
+                    if (
+                        card.querySelectorAll(
+                            "input:checked"
+                        ).length > 0
+                    ) {
+
+                        answered++;
+
+                    }
+
+                }
+
+
+                else if (
+                    type === "match"
+                ) {
+
+                    const selects =
+                        card.querySelectorAll(
+                            "select"
+                        );
+
+
+                    let complete = true;
+
+
+                    selects.forEach(
+                        function(select) {
+
+                            if (
+                                select.value === ""
+                            ) {
+
+                                complete = false;
+
+                            }
+
+                        }
+                    );
+
+
+                    if (complete) {
+
+                        answered++;
+
+                    }
+
+                }
+
+            }
+        );
+
+
+    const total =
+        {{ questions|length }};
+
+
+    document.getElementById(
+        "progressText"
+    ).textContent =
+
+        `${answered} / ${total}`;
+
+
+    document.getElementById(
+        "progressBar"
+    ).style.width =
+
+        (
+            answered / total * 100
+        )
+
+        +
+
+        "%";
+
+}
+
+
+
+/* =====================================================
+   ЖАУАПТАР
+===================================================== */
+
+function collectAnswers() {
+
+    const answers = {};
+
+
+    document
+        .querySelectorAll(
+            ".question-card"
+        )
+        .forEach(
+            function(card) {
+
+                const id =
+                    card.dataset.id;
+
+
+                const type =
+                    card.dataset.type;
+
+
+                if (
+                    type === "single"
+                    ||
+                    type === "context_single"
+                ) {
+
+                    const selected =
+                        card.querySelector(
+                            "input:checked"
+                        );
+
+
+                    if (selected) {
+
+                        answers[id] =
+                            Number(
+                                selected.value
+                            );
+
+                    }
+
+                }
+
+
+                else if (
+                    type === "multiple"
+                ) {
+
+                    const selected =
+                        card.querySelectorAll(
+                            "input:checked"
+                        );
+
+
+                    answers[id] =
+
+                        Array.from(
+                            selected
+                        ).map(
+                            function(input) {
+
+                                return Number(
+                                    input.value
+                                );
+
+                            }
+                        );
+
+                }
+
+
+                else if (
+                    type === "match"
+                ) {
+
+                    const selects =
+                        card.querySelectorAll(
+                            "select"
+                        );
+
+
+                    answers[id] =
+
+                        Array.from(
+                            selects
+                        ).map(
+                            function(select) {
+
+                                if (
+                                    select.value ===
+                                    ""
+                                ) {
+
+                                    return -1;
+
+                                }
+
+
+                                return Number(
+                                    select.value
+                                );
+
+                            }
+                        );
+
+                }
+
+            }
+        );
+
+
+    return answers;
+
+}
+
+
+
+/* =====================================================
+   HTML ҚАУІПСІЗДІГІ
+===================================================== */
+
+function escapeHtml(text) {
+
+    const div =
+        document.createElement(
+            "div"
+        );
+
+
+    div.textContent =
+        String(text);
+
+
+    return div.innerHTML;
+
+}
+
+
+
+/* =====================================================
+   ТЕСТІ АЯҚТАУ
+===================================================== */
+
+document
+    .getElementById(
+        "testForm"
+    )
+    .addEventListener(
+        "submit",
+        function(event) {
+
+            event.preventDefault();
+
+            finishTest();
+
+        }
+    );
+
+
+
+async function finishTest() {
+
+    if (finished) {
+        return;
+    }
+
+
+    finished = true;
+
+
+    clearInterval(
+        timerInterval
+    );
+
+
+    const answers =
+        collectAnswers();
+
+
+    const endpoint =
+
+        GENERATED
+
+        ? "/api/check-generated"
+
+        : "/api/check";
+
+
+    const body =
+
+        GENERATED
+
+        ? {
+            test_id:
+                TEST_ID,
+
+            answers:
+                answers
+        }
+
+        : {
+            answers:
+                answers
+        };
+
+
+    try {
+
+        const response =
+            await fetch(
+                endpoint,
+                {
+
+                    method:
+                        "POST",
+
+                    headers: {
+
+                        "Content-Type":
+                            "application/json"
+
+                    },
+
+                    body:
+                        JSON.stringify(
+                            body
+                        )
+
+                }
+            );
+
+
+        const data =
+            await response.json();
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                data.error
+                ||
+                "Сервер қатесі"
+            );
+
+        }
+
+
+        showResult(data);
+
+
+    }
+
+    catch(error) {
+
+        console.error(
+            error
+        );
+
+
+        alert(
+            "Нәтижені есептеу кезінде қате: "
+            +
+            error.message
+        );
+
+
+        finished = false;
+
+    }
+
+}
+
+
+
+/* =====================================================
+   НӘТИЖЕ
+===================================================== */
+
+function showResult(data) {
+
+    document
+        .getElementById(
+            "testForm"
+        )
+        .classList.add(
+            "hidden"
+        );
+
+
+    document
+        .querySelector(
+            ".progress-info"
+        )
+        .classList.add(
+            "hidden"
+        );
+
+
+    document
+        .querySelector(
+            ".progress"
+        )
+        .classList.add(
+            "hidden"
+        );
+
+
+    document
+        .getElementById(
+            "result"
+        )
+        .style.display =
+            "block";
+
+
+    document
+        .getElementById(
+            "score"
+        )
+        .textContent =
+
+        `${data.score} / ${data.max_score}`;
+
+
+    document
+        .getElementById(
+            "answered"
+        )
+        .textContent =
+
+        `${data.answered} / ${data.total} сұрақ жауапталды`;
+
+
+    const reviews =
+        document.getElementById(
+            "reviews"
+        );
+
+
+    reviews.innerHTML =
+        "";
+
+
+    data.details.forEach(
+        function(item,index) {
+
+            const div =
+                document.createElement(
+                    "div"
+                );
+
+
+            div.className =
+
+                "review "
+
+                +
+
+                (
+                    item.points > 0
+                    ? "good"
+                    : "bad"
+                );
+
+
+            let correctText =
+                "";
+
+
+            if (
+                item.type ===
+                "multiple"
+            ) {
+
+                const letters =
+                    item.correct
+                        .map(
+                            function(value) {
+
+                                return [
+                                    "A",
+                                    "B",
+                                    "C",
+                                    "D",
+                                    "E",
+                                    "F"
+                                ][value];
+
+                            }
+                        )
+                        .join(", ");
+
+
+                correctText = `
+
+                    <div class="review-text">
+
+                        <b>
+                            Дұрыс жауаптар:
+                        </b>
+
+                        ${escapeHtml(
+                            letters
+                        )}
+
+                    </div>
+
+                `;
+
+            }
+
+
+            else if (
+                item.type ===
+                "match"
+            ) {
+
+                const pairs =
+                    item.correct
+                        .map(
+                            function(
+                                value,
+                                pairIndex
+                            ) {
+
+                                const letter =
+                                    [
+                                        "A",
+                                        "B",
+                                        "C",
+                                        "D"
+                                    ][value];
+
+
+                                return (
+
+                                    (pairIndex + 1)
+
+                                    +
+
+                                    " → "
+
+                                    +
+
+                                    letter
+
+                                );
+
+                            }
+                        )
+                        .join(
+                            " | "
+                        );
+
+
+                correctText = `
+
+                    <div class="review-text">
+
+                        <b>
+                            Дұрыс сәйкестік:
+                        </b>
+
+                        ${escapeHtml(
+                            pairs
+                        )}
+
+                    </div>
+
+                `;
+
+            }
+
+
+            else {
+
+                const letter =
+                    [
+                        "A",
+                        "B",
+                        "C",
+                        "D"
+                    ][item.correct];
+
+
+                correctText = `
+
+                    <div class="review-text">
+
+                        <b>
+                            Дұрыс жауап:
+                        </b>
+
+                        ${escapeHtml(
+                            letter
+                        )}
+
+                    </div>
+
+                `;
+
+            }
+
+
+            div.innerHTML = `
+
+                <div class="review-title">
+
+                    ${index + 1}.
+                    ${
+                        item.points > 0
+                        ? "Дұрыс"
+                        : "Қате"
+                    }
+
+                    •
+
+                    ${item.points} балл
+
+                </div>
+
+
+                ${correctText}
+
+
+                <div class="review-text">
+
+                    <b>
+                        Түсіндірме:
+                    </b>
+
+                    <br><br>
+
+                    ${escapeHtml(
+                        item.explanation
+                    )}
+
+                </div>
+
+
+                <div class="theory">
+
+                    <b>
+                        Теория:
+                    </b>
+
+                    <br><br>
+
+                    ${escapeHtml(
+                        item.theory
+                    )}
+
+                </div>
+
+            `;
+
+
+            reviews.appendChild(
+                div
+            );
+
+        }
+    );
+
+
+    window.scrollTo({
+
+        top: 0,
+
+        behavior: "smooth"
+
+    });
+
+}
+
+</script>
+
+
+</body>
+
+</html>
+```
